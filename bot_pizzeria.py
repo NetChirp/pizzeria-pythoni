@@ -1,9 +1,9 @@
 # --- MIS CONSTANTES ---
-COLOR_AZUL = "\033[34m"
-COLOR_AMARILLO = "\033[33m"
-COLOR_VERDE = "\033[32m"
-COLOR_ROJO = "\033[31m"
-RESETEO_COLOR = "\033[0m"
+COLOR_AZUL: str = "\033[34m"
+COLOR_AMARILLO: str = "\033[33m"
+COLOR_VERDE: str = "\033[32m"
+COLOR_ROJO: str = "\033[31m"
+RESETEO_COLOR:str = "\033[0m"
 
 # --- DATOS INICIALES ---
 menu = ["Margarita", "Cuatro Quesos", "Pepperoni", "Hawaiana"]
@@ -18,18 +18,25 @@ print(f"{COLOR_VERDE}Comandos disponibles: 'pedir', 'extra', 'ver', 'pagar', 'sa
 # --- INICIO DE PROGRAMA ---
 
 def mostrar_menu():
+    print("--- MENU ---")
+    for i in menu:
+        print(i)
+    print("------------")
+
+def comprobar_pizza(pizza):
     for i in range(len(menu)):
-        print(menu[i])
+        if menu[i] == pizza:
+            print("La pizza ya existe")
 
 
 continuar: bool = True
 while continuar:
-    mostrar_menu()
     print("----------")
-    comando: str = input("¿Qué deseas hacer?")
+    comando: str = input("¿Qué deseas hacer?\nAcción: ")
     match comando.lower():
         case "pedir":
-            pass
+            mostrar_menu()
+            seleccion: str = input("Cual de estas pizzas desea pedir?\nSelección: ")
         case "extra":
             pass
         case "ver":
