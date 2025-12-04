@@ -37,7 +37,8 @@ while continuar:
         case "pedir":
             mostrar_menu()
             seleccion_pizza: str = input("Cual de estas pizzas desea pedir?\nSelección: ")
-
+            comprobar_pizza(seleccion_pizza.title())
+            print(carrito_pizzas)
         case "extra":
             pass
         case "ver":
