@@ -26,7 +26,11 @@ def mostrar_menu():
 def comprobar_pizza(pizza):
     for i in range(len(menu)):
         if menu[i] == pizza:
-            print("La pizza ya existe")
+            print(menu[i])
+            carrito_pizzas.append(pizza)
+            break
+        else:
+            print(f"{COLOR_ROJO}Esta pizza no existe{RESETEO_COLOR}")
 
 
 continuar: bool = True
@@ -36,7 +40,8 @@ while continuar:
     match comando.lower():
         case "pedir":
             mostrar_menu()
-            seleccion: str = input("Cual de estas pizzas desea pedir?\nSelección: ")
+            seleccion_pizza: str = input("Cual de estas pizzas desea pedir?\nSelección: ")
+            comprobar_pizza(seleccion_pizza.title())
         case "extra":
             pass
         case "ver":
