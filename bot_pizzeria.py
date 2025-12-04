@@ -27,7 +27,7 @@ def mostrar_stock_ingredientes():
     for ingrediente in stock_ingredientes:
         print(ingrediente)
 
-def comprobar_anadir_pizza(pizza):
+def anadir_pizza(pizza):
     for i in range(len(menu)):
         if pizza in menu:
             carrito_pizzas.append(pizza)
@@ -43,7 +43,7 @@ while continuar:
         case "pedir":
             mostrar_menu()
             seleccion_pizza: str = input("Cual de estas pizzas desea pedir?\nSelección: ")
-            comprobar_anadir_pizza(seleccion_pizza.title())
+            anadir_pizza(seleccion_pizza.title())
         case "extra":
             pass
         case "ver":
