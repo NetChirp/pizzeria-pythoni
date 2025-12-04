@@ -17,10 +17,14 @@ print(f"{COLOR_VERDE}Comandos disponibles: 'pedir', 'extra', 'ver', 'pagar', 'sa
 
 # --- INICIO DE PROGRAMA ---
 
+def mostrar_menu():
+    for i in range(len(menu)):
+        print(menu[i])
 
 
 continuar: bool = True
 while continuar:
+    mostrar_menu()
     print("----------")
     comando: str = input("¿Qué deseas hacer?")
     match comando.lower():
