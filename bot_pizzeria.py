@@ -19,9 +19,13 @@ print(f"{COLOR_VERDE}Comandos disponibles: 'pedir', 'extra', 'ver', 'pagar', 'sa
 
 def mostrar_menu():
     print("--- MENU ---")
-    for i in menu:
-        print(i)
+    for pizza in menu:
+        print(pizza)
     print("------------")
+
+def mostrar_stock_ingredientes():
+    for ingrediente in stock_ingredientes:
+        print(ingrediente)
 
 def comprobar_anadir_pizza(pizza):
     for i in range(len(menu)):
