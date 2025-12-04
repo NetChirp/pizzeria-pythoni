@@ -23,10 +23,12 @@ def mostrar_menu():
         print(i)
     print("------------")
 
-def comprobar_pizza(pizza):
+def comprobar_anadir_pizza(pizza):
     for i in range(len(menu)):
-        if menu[i] == pizza:
+        if pizza in menu:
             carrito_pizzas.append(pizza)
+            print(f"{COLOR_AZUL}Pizza {pizza} añadida al carrito{RESETEO_COLOR}")
+            break
 
 
 continuar: bool = True
@@ -37,8 +39,7 @@ while continuar:
         case "pedir":
             mostrar_menu()
             seleccion_pizza: str = input("Cual de estas pizzas desea pedir?\nSelección: ")
-            comprobar_pizza(seleccion_pizza.title())
-            print(carrito_pizzas)
+            comprobar_anadir_pizza(seleccion_pizza.title())
         case "extra":
             pass
         case "ver":
