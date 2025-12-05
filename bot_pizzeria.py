@@ -59,8 +59,19 @@ def anadir_pizza(pizza):
             break
 
 
-def anadir_ingrediente(ingrediente):
-    ingredientes_solicitados.append(ingrediente)
+def imprimir_ticket(pizzas, ingredientes):
+    print(f"{COLOR_ROJO}================={RESETEO_COLOR}")
+    print("TICKET FINAL")
+    print(f"{COLOR_ROJO}================={RESETEO_COLOR}")
+
+    print(f"{COLOR_VERDE}Pizzas:{RESETEO_COLOR}\n")
+    for pizza in carrito_pizzas:
+        print(f"- {pizza}\n")
+
+    print(f"{COLOR_VERDE}Ingredientes extra validos:{RESETEO_COLOR}\n")
+    for ingrediente in ingredientes_finales:
+        print(f"- {ingrediente}\n")
+    pass
 
 
 # --- INICIO DEL CHAT ---
@@ -78,7 +89,7 @@ while continuar:
         case "extra":
             mostrar_stock_ingredientes()
             ingrediente_solicitado: str = input("Que ingrediente deseas extra?\n -> ")
-            anadir_ingrediente(ingrediente_solicitado)
+            ingredientes_solicitados.append(ingrediente_solicitado)
             print(
                 f"{COLOR_VERDE}Ingrediente {ingrediente_solicitado} añadido al carrito{RESETEO_COLOR}"
             )
@@ -88,8 +99,15 @@ while continuar:
             ingredientes_finales = [
                 ingrediente.title()
                 for ingrediente in ingredientes_solicitados
-                if ingrediente in ingredientes_solicitados
+                if ingrediente in stock_ingredientes
             ]
+
+            if len(ingredientes_finales) < len(ingredientes_solicitados):
+                print(
+                    f"{COLOR_AMARILLO}AVISO: Algunos ingredientes solicitados no están en stock y se han eliminado.{RESETEO_COLOR}"
+                )
+
+            imprimir_ticket(carrito_pizzas, ingredientes_finales)
         case "salir":
             print(f"{COLOR_AMARILLO}Mamma Mia{RESETEO_COLOR}")
             break
