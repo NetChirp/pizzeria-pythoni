@@ -22,6 +22,7 @@ print(
 # --- INICIO DE PROGRAMA ---
 
 
+# --- FUNCIONES ---
 def mostrar_seleccionado():
     print(f"--- {COLOR_AZUL}PIZZAS E INGREDIENTES SELECCIONADOS{RESETEO_COLOR} ---")
 
@@ -32,6 +33,8 @@ def mostrar_seleccionado():
     print(f"--- {COLOR_ROJO}Ingredientes{RESETEO_COLOR} ---")
     for ingrediente in ingredientes_solicitados:
         print(f"* {ingrediente}")
+
+    print(f"{COLOR_AMARILLO}Se comprobara el stock a la hora de pagar{RESETEO_COLOR}")
 
 
 def mostrar_menu():
@@ -60,6 +63,7 @@ def anadir_ingrediente(ingrediente):
     ingredientes_solicitados.append(ingrediente)
 
 
+# --- INICIO DEL CHAT ---
 continuar: bool = True
 while continuar:
     print("----------")
@@ -81,7 +85,11 @@ while continuar:
         case "ver":
             mostrar_seleccionado()
         case "pagar":
-            break
+            ingredientes_finales = [
+                ingrediente.title()
+                for ingrediente in ingredientes_solicitados
+                if ingrediente in ingredientes_solicitados
+            ]
         case "salir":
             print(f"{COLOR_AMARILLO}Mamma Mia{RESETEO_COLOR}")
             break
