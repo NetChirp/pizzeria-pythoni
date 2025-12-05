@@ -22,6 +22,18 @@ print(
 # --- INICIO DE PROGRAMA ---
 
 
+def mostrar_seleccionado():
+    print(f"--- {COLOR_AZUL}PIZZAS E INGREDIENTES SELECCIONADOS{RESETEO_COLOR} ---")
+
+    print(f"--- {COLOR_ROJO}Pizzas{RESETEO_COLOR} ---")
+    for pizza in carrito_pizzas:
+        print(f"* {pizza}")
+
+    print(f"--- {COLOR_ROJO}Ingredientes{RESETEO_COLOR} ---")
+    for ingrediente in ingredientes_solicitados:
+        print(f"* {ingrediente}")
+
+
 def mostrar_menu():
     print("--- MENU ---")
     for pizza in menu:
@@ -67,11 +79,11 @@ while continuar:
                 f"{COLOR_VERDE}Ingrediente {ingrediente_solicitado} añadido al carrito{RESETEO_COLOR}"
             )
         case "ver":
-            pass
+            mostrar_seleccionado()
         case "pagar":
-            pass
+            break
         case "salir":
             print(f"{COLOR_AMARILLO}Mamma Mia{RESETEO_COLOR}")
             break
         case _:
-            print(f"{COLOR_ROJO} Comando desconocido {RESETEO_COLOR}")
+            print(f"{COLOR_ROJO}Comando desconocido{RESETEO_COLOR}")
