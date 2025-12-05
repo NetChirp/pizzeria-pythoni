@@ -38,39 +38,12 @@ Necesitas tener **Python 3.10 o superior** instalado en tu sistema para ejecutar
 1.  Clona este repositorio:
 
     ```bash
-    git clone [https://docs.github.com/es/repositories/creating-and-managing-repositories/quickstart-for-repositories](https://docs.github.com/es/repositories/creating-and-managing-repositories/quickstart-for-repositories)
-    cd [nombre del repositorio]
+    git clone https://github.com/NetChirp/pizzeria-pythoni/
+    cd pizzeria-pythoni
     ```
 
 2.  Ejecuta el script de Python:
     ```bash
-    python bot_pizzeria.py
-    ```
+    python3 bot_pizzeria.py
+    ``` 
 
-### Interacción
-
-## Una vez que el programa se inicie, podrás interactuar con el bot usando los comandos disponibles. El bot te guiará a través del proceso de pedido:
-
-## 📝 Código Clave (Fase 2: List Comprehension)
-
-La limpieza y el filtrado de los ingredientes solicitados, que constituye la parte más importante del ejercicio, se realiza en el comando **`pagar`**:
-
-```python
-case "pagar":
-    # 1. List Comprehension para filtrar y formatear
-    ingredientes_finales = [
-        ingrediente.title()
-        for ingrediente in ingredientes_solicitados
-        if ingrediente in stock_ingredientes
-    ]
-
-    # 2. Aviso de ingredientes eliminados
-    if len(ingredientes_finales) < len(ingredientes_solicitados):
-        print(
-            f"{COLOR_AMARILLO}AVISO: Algunos ingredientes solicitados no están en stock y se han eliminado.{RESETEO_COLOR}"
-        )
-
-    # 3. Impresión del ticket
-    imprimir_ticket()
-    # ...
-```
