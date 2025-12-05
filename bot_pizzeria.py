@@ -52,14 +52,14 @@ def mostrar_stock_ingredientes():
 
 
 def anadir_pizza(pizza):
-    for i in range(len(menu)):
-        if pizza in menu:
-            carrito_pizzas.append(pizza)
-            print(f"{COLOR_AZUL}Pizza {pizza} añadida al carrito{RESETEO_COLOR}")
-            break
+    if pizza in menu:
+        carrito_pizzas.append(pizza)
+        print(f"{COLOR_AZUL}Pizza {pizza} añadida al carrito{RESETEO_COLOR}")
+    else:
+        print(f"{COLOR_ROJO}La pizza no esta en nuestro menu{RESETEO_COLOR}")
 
 
-def imprimir_ticket(pizzas, ingredientes):
+def imprimir_ticket():
     print(f"{COLOR_ROJO}================={RESETEO_COLOR}")
     print("TICKET FINAL")
     print(f"{COLOR_ROJO}================={RESETEO_COLOR}")
@@ -83,7 +83,7 @@ while continuar:
         case "pedir":
             mostrar_menu()
             seleccion_pizza: str = input(
-                "Cual de estas pizzas desea pedir?\nSelección: "
+                "Cual de estas pizzas desea pedir?\nSelección ->"
             )
             anadir_pizza(seleccion_pizza.title())
         case "extra":
@@ -107,7 +107,7 @@ while continuar:
                     f"{COLOR_AMARILLO}AVISO: Algunos ingredientes solicitados no están en stock y se han eliminado.{RESETEO_COLOR}"
                 )
 
-            imprimir_ticket(carrito_pizzas, ingredientes_finales)
+            imprimir_ticket()
         case "salir":
             print(f"{COLOR_AMARILLO}Mamma Mia{RESETEO_COLOR}")
             break
